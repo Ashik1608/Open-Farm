@@ -18,7 +18,7 @@ export default function Login() {
       <main>
         <BaseLayout>
         <div className="login">     
-          <div className="card">
+          <div className="card name register">
             <div className="card-body new">
               <h3 className="card-title">Login</h3>
               <div className="card-text-center">
