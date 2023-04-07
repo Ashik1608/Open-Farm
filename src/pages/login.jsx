@@ -6,7 +6,8 @@ import { useState } from "react";
 
 export default function Login() {
   const [user, setUser] = useState({ name: "" });
-  return (
+  const [pass,setPass] = useState({passwrd:""})
+  return( 
     <>
       <Head>
         <title>Open Farm | Login</title>
@@ -16,11 +17,7 @@ export default function Login() {
       </Head>
       <main>
         <BaseLayout>
-          <div className="right_content">
-            <h1>
-              {`"`}A <span> quote </span> that fits{`"`}
-            </h1>
-          </div>
+        <div className="login">     
           <div className="card">
             <div className="card-body new">
               <h3 className="card-title">Login</h3>
@@ -45,6 +42,10 @@ export default function Login() {
                       className="input_field"
                       type="text"
                       name="pass"
+                      onChange={(event) => {
+                        setPass({ ...pass, passwrd: event.target.value });
+                      }}
+                      value={pass.passwrd}
                     />{" "}
                     <br /> <br />
                   </p>
@@ -68,6 +69,12 @@ export default function Login() {
                 </form>
               </div>
             </div>
+          </div>
+          < div className="right_content">     
+          <h1>
+              {`"`}A <span> quote </span> that fits{`"`}
+            </h1>
+          </div>
           </div>
         </BaseLayout>
       </main>
