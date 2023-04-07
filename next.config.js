@@ -5,8 +5,8 @@ const nextConfig = {
   // image optimization
   images: {
     dangerouslyAllowSVG: true,
-    domains: ["spline.design", "api.dicebear.com"],
+    domains: ["spline.design", "api.dicebear.com", "www.ultraupdates.com"],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

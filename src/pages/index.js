@@ -9,7 +9,13 @@ import {
   MDBCardImage,
   MDBBtn,
   MDBRipple,
+  MDBBadge,
 } from "mdb-react-ui-kit";
+import Image from "next/image";
+import { AiOutlineHeart } from "react-icons/ai";
+import { FaRegCommentDots } from "react-icons/fa";
+import { FiSend } from "react-icons/fi";
+import { AiOutlinePlusCircle } from "react-icons/ai";
 
 const ls_bold = League_Spartan({
   weight: "700",
@@ -28,17 +34,19 @@ export default function Home() {
       <main>
         <BaseLayout>
           <div className="row">
-            <div className="col-md-2">
-              <MDBCard className="bg-secondary">
+            <div className="col-md-3">
+              <MDBCard className="bg-secondary text-center sticky-top">
                 <MDBRipple
                   rippleColor="light"
                   rippleTag="div"
                   className="bg-image hover-overlay"
+                  style={{ zIndex: 0 }}
                 >
                   <MDBCardImage
-                    src="https://mdbootstrap.com/img/new/standard/nature/111.webp"
+                    src="https://i.pinimg.com/originals/31/bd/48/31bd488d3359a551bd802cef8fafe9ee.jpg"
                     fluid
                     alt="..."
+                    style={{ height: "180px" }}
                   />
                   <a>
                     <div
@@ -48,72 +56,228 @@ export default function Home() {
                   </a>
                 </MDBRipple>
                 <MDBCardBody>
-                  <MDBCardTitle>Card title</MDBCardTitle>
-                  <MDBCardText>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card content.
-                  </MDBCardText>
-                  <MDBBtn href="#">Button</MDBBtn>
+                  <MDBCardTitle className="d-flex justify-content-between align-items-center">
+                    <div className="fs-6">
+                      123
+                      <br />
+                      followers
+                    </div>
+                    <div style={{ zIndex: 1 }}>
+                      <Image
+                        src="https://api.dicebear.com/6.x/avataaars/svg?radius=50"
+                        className="rounded-circle rounded-pill p-1 mt-n5 bg-dark custom-border"
+                        width="100"
+                        height="100"
+                        alt="Profile Picture"
+                        priority
+                      />
+                    </div>
+                    <p className="fs-6">
+                      967
+                      <br />
+                      following
+                    </p>
+                  </MDBCardTitle>
+                  <div>
+                    <h2 className="mb-0">Jane Doe</h2>
+                    <h6 className="text-muted">@janedoe</h6>
+                    Hello World, I am a web developer and designer. I love to
+                    code and design beautiful websites.
+                  </div>
+                  <hr className="text-muted" />
+                  <MDBBtn
+                    href="#"
+                    className="bg-secondary custom-shadow rounded-pill text-capitalize bg-btn"
+                  >
+                    My Profile
+                  </MDBBtn>
                 </MDBCardBody>
               </MDBCard>
             </div>
             <div className="col-md-6">
-              <MDBCard className="bg-secondary">
-                <MDBRipple
-                  rippleColor="light"
-                  rippleTag="div"
-                  className="bg-image hover-overlay"
-                >
-                  <MDBCardImage
-                    src="https://mdbootstrap.com/img/new/standard/nature/111.webp"
-                    fluid
-                    alt="..."
+              <div className="d-flex justify-content-start align-items-center mb-2">
+                {[1, 2, 3, 4, 5, 6].map((item, i) => (
+                  <div key={i} className="h1 text-center me-3">
+                    <MDBBadge className="bg-secondary rounded-circle p-2" light>
+                      <Image
+                        src="https://api.dicebear.com/6.x/personas/svg?radius=50"
+                        className="rounded-circle bg-dark custom-border"
+                        width="50"
+                        height="50"
+                        alt="Profile Picture"
+                        priority
+                      />
+                    </MDBBadge>
+                    <h6 className="fs-6">John</h6>
+                  </div>
+                ))}
+                <div className="h1 text-center mb-4">
+                  <MDBBadge className="bg-secondary rounded-circle p-1" light>
+                    <AiOutlinePlusCircle size="28" className="text-muted" />
+                  </MDBBadge>
+                </div>
+              </div>
+              <div className="bg-secondary rounded-5 p-3">
+                <div className="d-flex justify-content-between align-items-center mb-4">
+                  <h5 className="mb-0">Create Post</h5>
+                  <MDBBtn
+                    href="#"
+                    className="bg-primary h5 mb-0 text-secondary px-2 py-1 rounded-pill text-capitalize"
+                  >
+                    Post!
+                  </MDBBtn>
+                </div>
+                <div className="d-flex justify-content-start align-items-start">
+                  <Image
+                    src="https://api.dicebear.com/6.x/personas/svg?radius=50"
+                    className="rounded-circle bg-dark custom-border me-3"
+                    width="50"
+                    height="50"
+                    alt="Profile Picture"
+                    priority
                   />
-                  <a>
-                    <div
-                      className="mask"
-                      style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
-                    ></div>
-                  </a>
-                </MDBRipple>
-                <MDBCardBody>
-                  <MDBCardTitle>sfds title</MDBCardTitle>
-                  <MDBCardText>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card content.
-                  </MDBCardText>
-                  <MDBBtn href="#">Button</MDBBtn>
-                </MDBCardBody>
-              </MDBCard>
+                  <textarea
+                    className="form-control bg-secondary text-white border-1 border-dark border-secondary"
+                    placeholder="What's on your mind?"
+                    rows="3"
+                  ></textarea>
+                </div>
+              </div>
+              {[1, 2, 3, 4, 5, 6].map((item, i) => (
+                <MDBCard className="bg-secondary my-4" key={i}>
+                  <MDBCardBody>
+                    <MDBCardTitle>
+                      <div className="d-flex justify-content-start align-items-start">
+                        <MDBRipple
+                          rippleColor="light"
+                          rippleTag="div"
+                          className="bg-image hover-overlay"
+                        >
+                          <Image
+                            src="https://api.dicebear.com/6.x/personas/svg?radius=50"
+                            className="rounded-circle bg-dark custom-border me-3"
+                            width="50"
+                            height="50"
+                            alt="Profile Picture"
+                            priority
+                          />
+                        </MDBRipple>
+                        <span>
+                          <h6 className="fs-6 text-muted">@harrypotter</h6>
+                          <p className="fs-6 text-primary">
+                            Harry Potter
+                            <span className="text-muted"> • 1hr ago</span>
+                          </p>
+                        </span>
+                      </div>
+                    </MDBCardTitle>
+                    <MDBCardText>
+                      In need of a soil analyst for my farm, which is located in
+                      the outskirts of the city. Please contact me if you are
+                      interested in working with me.
+                    </MDBCardText>
+                    <Image
+                      src="https://www.ultraupdates.com/wp-content/uploads/2016/09/colorful-twitter-header.jpg"
+                      className="rounded-2 bg-dark"
+                      width="688"
+                      height="300"
+                      alt="Profile Picture"
+                      priority
+                    />
+                    <div className="mt-3 d-flex justify-content-between align-items-center">
+                      <div>
+                        <MDBBtn
+                          href="#"
+                          className="bg-transparent shadow-0 rounded-circle text-capitalize p-2 me-2 text-muted"
+                        >
+                          <AiOutlineHeart size="23" />
+                        </MDBBtn>
+                        <MDBBtn
+                          href="#"
+                          className="bg-transparent shadow-0 rounded-circle text-capitalize p-2 me-2 text-muted"
+                        >
+                          <FaRegCommentDots size="23" />
+                        </MDBBtn>
+                        <MDBBtn
+                          href="#"
+                          className="bg-transparent shadow-0 rounded-circle text-capitalize p-2 me-2 text-muted"
+                        >
+                          <FiSend size="21" />
+                        </MDBBtn>
+                      </div>
+                      <div>
+                        <MDBBtn
+                          href="#"
+                          className="bg-primary text-secondary px-2 py-1 shadow-0 rounded-5 text-capitalize"
+                        >
+                          Hire me!
+                        </MDBBtn>
+                      </div>
+                    </div>
+                  </MDBCardBody>
+                </MDBCard>
+              ))}
             </div>
-            <div className="col-md-4">
-              <MDBCard className="bg-secondary">
-                <MDBRipple
-                  rippleColor="light"
-                  rippleTag="div"
-                  className="bg-image hover-overlay"
-                >
-                  <MDBCardImage
-                    src="https://mdbootstrap.com/img/new/standard/nature/111.webp"
-                    fluid
-                    alt="..."
-                  />
-                  <a>
-                    <div
-                      className="mask"
-                      style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
-                    ></div>
-                  </a>
-                </MDBRipple>
-                <MDBCardBody>
-                  <MDBCardTitle>Card title</MDBCardTitle>
-                  <MDBCardText>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card content.
-                  </MDBCardText>
-                  <MDBBtn href="#">Button</MDBBtn>
-                </MDBCardBody>
-              </MDBCard>
+            <div className="col-md-3">
+              <div className="bg-secondary rounded-5 p-3 sticky-top">
+                <h5>Recent activity</h5>
+                <div className="custom-out-bg p-3 my-3 rounded-5">
+                  <div className="d-flex justify-content-start align-items-start">
+                    <Image
+                      src="https://api.dicebear.com/6.x/personas/svg?radius=50"
+                      className="rounded-circle bg-dark custom-border me-3"
+                      width="50"
+                      height="50"
+                      alt="Profile Picture"
+                      priority
+                    />
+                    <span>
+                      <h6 className="fs-6 mb-0">John</h6>
+                      <p className="fs-6 text-primary">
+                        Income Received!
+                        <span className="text-muted"> • 3mins ago</span>
+                      </p>
+                    </span>
+                  </div>
+                  <div className="custom-in-bg p-2 px-3 rounded-5 d-flex justify-content-between align-items-center">
+                    <h6 className="mb-0">Rs. 500 /-</h6>
+                    <MDBBtn
+                      href="#"
+                      className="bg-primary text-secondary px-2 py-1 rounded-pill text-capitalize"
+                    >
+                      Say thanks!
+                    </MDBBtn>
+                  </div>
+                </div>
+                <div className="custom-out-bg p-3 my-3 rounded-5">
+                  <div className="d-flex justify-content-start align-items-start">
+                    <Image
+                      src="https://api.dicebear.com/6.x/personas/svg?radius=50"
+                      className="rounded-circle bg-dark custom-border me-3"
+                      width="50"
+                      height="50"
+                      alt="Profile Picture"
+                      priority
+                    />
+                    <span>
+                      <h6 className="fs-6 mb-0">Sam</h6>
+                      <p className="fs-6 text-primary">
+                        Deadline Arrived!
+                        <span className="text-muted"> • 10mins ago</span>
+                      </p>
+                    </span>
+                  </div>
+                  <div className="custom-in-bg p-2 px-3 rounded-5 d-flex justify-content-between align-items-center">
+                    <h6 className="mb-0">Rs. 800 /-</h6>
+                    <MDBBtn
+                      href="#"
+                      className="bg-primary text-secondary px-2 py-1 rounded-pill text-capitalize"
+                    >
+                      Pay them!
+                    </MDBBtn>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </BaseLayout>
