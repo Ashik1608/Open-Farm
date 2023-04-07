@@ -1,5 +1,11 @@
 .login {
   display: flex;
+
+}
+.register{
+  width: 40rem;
+  background-color:rgba(41, 41, 40, 1) ;
+  text-align: center;
 }
 .input_field {
   border-radius: 20px;
@@ -15,7 +21,7 @@
   margin-left: 100px;
 }
 .right_content > h1 {
-  font-size: 150px;
+  font-size: 100px;
 }
 .right_content > h1 > span {
   color: rgba(255, 253, 2, 1);

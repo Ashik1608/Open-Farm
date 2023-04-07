@@ -22,7 +22,7 @@ export default function Register() {
       <main>
         <BaseLayout>
         <div className="login">     
-          <div className="card">
+          <div className="card  register" >
             <div className="card-body new">
               <h3 className="card-title">REGISTERS</h3>
               <div className="card-text-center">
