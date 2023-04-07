@@ -1,13 +1,23 @@
+.login{
+  display:flex;
+}
+
 .card {
   width: 30rem;
   background-color: rgba(41, 41, 40, 1);
   border-radius: 20px;
+  box-shadow:0 5px 6px rgba(255, 253, 2, 1) ,0 2px 3px rgba(255, 253, 2, 1);
 }
+
 .card-body {
   text-align: center;
 }
 .card {
   margin-left: 230px;
+}
+.card-text  > span{
+  color:rgba(255, 253, 2, 1) ;
+
 }
 .input_field {
   border-radius: 20px;
@@ -19,12 +29,11 @@
 .forgot_password > a {
   color: rgba(255, 253, 2, 1);
 }
-.right_content {
-  margin-left: 900px;
-  margin-top: 100px;
+.right_content{
+  margin-left: 100px;
 }
 .right_content > h1 {
-  font-size: 60px;
+  font-size: 150px;
 }
 .right_content > h1 > span {
   color: rgba(255, 253, 2, 1);
