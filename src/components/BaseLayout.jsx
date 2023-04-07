@@ -7,10 +7,10 @@ const ls = League_Spartan({
   subsets: ["latin"],
 });
 
-const BaseLayout = ({ children }) => {
+const BaseLayout = ({ home, children }) => {
   return (
     <section className={`${ls.className} container-fluid py-3`}>
-      <Header />
+      <Header isHome={home} />
       <hr className="mb-5" />
       {children}
       <hr className="mt-5" />
