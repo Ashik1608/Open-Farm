@@ -2,7 +2,11 @@
 
 const nextConfig = {
   reactStrictMode: true,
-  
+  // image optimization
+  images: {
+    dangerouslyAllowSVG: true,
+    domains: ["spline.design", "api.dicebear.com"],
+  },
 }
 
 module.exports = nextConfig

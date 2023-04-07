@@ -1,11 +1,20 @@
-import Head from 'next/head'
-import BaseLayout from '@/components/BaseLayout'
-import { League_Spartan } from 'next/font/google'
+import Head from "next/head";
+import BaseLayout from "@/components/BaseLayout";
+import { League_Spartan } from "next/font/google";
+import {
+  MDBCard,
+  MDBCardBody,
+  MDBCardTitle,
+  MDBCardText,
+  MDBCardImage,
+  MDBBtn,
+  MDBRipple,
+} from "mdb-react-ui-kit";
 
-const ls_bold = League_Spartan({ 
-    weight: "700",
-    subsets: ['latin']
- })
+const ls_bold = League_Spartan({
+  weight: "700",
+  subsets: ["latin"],
+});
 
 export default function Home() {
   return (
@@ -17,22 +26,98 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-          <BaseLayout>
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={ls_bold.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p >
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a></BaseLayout>
+        <BaseLayout>
+          <div className="row">
+            <div className="col-md-2">
+              <MDBCard className="bg-secondary">
+                <MDBRipple
+                  rippleColor="light"
+                  rippleTag="div"
+                  className="bg-image hover-overlay"
+                >
+                  <MDBCardImage
+                    src="https://mdbootstrap.com/img/new/standard/nature/111.webp"
+                    fluid
+                    alt="..."
+                  />
+                  <a>
+                    <div
+                      className="mask"
+                      style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
+                    ></div>
+                  </a>
+                </MDBRipple>
+                <MDBCardBody>
+                  <MDBCardTitle>Card title</MDBCardTitle>
+                  <MDBCardText>
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card content.
+                  </MDBCardText>
+                  <MDBBtn href="#">Button</MDBBtn>
+                </MDBCardBody>
+              </MDBCard>
+            </div>
+            <div className="col-md-6">
+              <MDBCard className="bg-secondary">
+                <MDBRipple
+                  rippleColor="light"
+                  rippleTag="div"
+                  className="bg-image hover-overlay"
+                >
+                  <MDBCardImage
+                    src="https://mdbootstrap.com/img/new/standard/nature/111.webp"
+                    fluid
+                    alt="..."
+                  />
+                  <a>
+                    <div
+                      className="mask"
+                      style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
+                    ></div>
+                  </a>
+                </MDBRipple>
+                <MDBCardBody>
+                  <MDBCardTitle>sfds title</MDBCardTitle>
+                  <MDBCardText>
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card content.
+                  </MDBCardText>
+                  <MDBBtn href="#">Button</MDBBtn>
+                </MDBCardBody>
+              </MDBCard>
+            </div>
+            <div className="col-md-4">
+              <MDBCard className="bg-secondary">
+                <MDBRipple
+                  rippleColor="light"
+                  rippleTag="div"
+                  className="bg-image hover-overlay"
+                >
+                  <MDBCardImage
+                    src="https://mdbootstrap.com/img/new/standard/nature/111.webp"
+                    fluid
+                    alt="..."
+                  />
+                  <a>
+                    <div
+                      className="mask"
+                      style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
+                    ></div>
+                  </a>
+                </MDBRipple>
+                <MDBCardBody>
+                  <MDBCardTitle>Card title</MDBCardTitle>
+                  <MDBCardText>
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card content.
+                  </MDBCardText>
+                  <MDBBtn href="#">Button</MDBBtn>
+                </MDBCardBody>
+              </MDBCard>
+            </div>
+          </div>
+        </BaseLayout>
       </main>
     </>
-  )
+  );
 }

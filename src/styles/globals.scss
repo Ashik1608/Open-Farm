@@ -9,7 +9,7 @@ $c3: #1a1b1b;
   --mdb-primary-rgb: 255, 253, 2;
   --mdb-secondary-rgb: 41, 41, 40;
   --max-width: 1100px;
-  --border-radius: 12px;
+  --border-radius: 50px;
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
@@ -100,6 +100,7 @@ body {
 }
 
 a {
+  color: rgb(var(--foreground-rgb));
   text-decoration: none;
 }
 
@@ -107,4 +108,18 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+// custom styles
+
+.border-radius-custom {
+  border-radius: var(--border-radius);
+}
+
+.bg-secondary {
+  background-color: $c2 !important;
+}
+
+.text-custom {
+  color: rgb(var(--foreground-rgb));
 }
