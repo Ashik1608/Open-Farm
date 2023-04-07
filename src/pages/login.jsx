@@ -16,9 +16,12 @@ export default function Login() {
       </Head>
       <main>
         <BaseLayout>
-          <div className="card" style={{ width: "40rem" }}>
+        <div className="right_content">
+            <h1> "A <span> quote  </span> that fits"</h1>
+          </div>
+          <div className="card">
             <div className="card-body new">
-              <h5 className="card-title">Login</h5>
+              <h3 className="card-title">Login</h3>
               <div className="card-text-center">
                 <form>
                   <p className="card-text">
@@ -26,6 +29,7 @@ export default function Login() {
                     USERNAME <br />
                     <input
                       type="text"
+                      className="input_field"
                       onChange={(event) => {
                         setUser({ ...user, name: event.target.value });
                       }}
@@ -36,11 +40,19 @@ export default function Login() {
                   </p>
                   <p className="card-text">
                     PASSWORD <br />
-                    <input type="text" name="pass" /> <br /> <br />
+                    <input className="input_field" type="text" name="pass" /> <br /> <br />
                   </p>
-                  <button type="button" className="btn btn-primary">
-                    Button
-                  </button>
+                  <button type="button" className="btn btn-primary_login">
+                    Login
+                  </button> 
+                  <br/> <br/>
+                  <p className="card-text">
+                     <div className="forgot_password">  
+                     <Link href="/">Forgot Password</Link>
+                      </div>
+                    <br/> <br/>
+                    New? <Link href="/register" style={{color:"rgba(255, 253, 2, 1)"}}>Register Now!!</Link>
+                  </p>
                 </form>
               </div>
             </div>
@@ -49,4 +61,6 @@ export default function Login() {
       </main>
     </>
   );
-}
+                    }
+                
+  
