@@ -16,8 +16,10 @@ export default function Login() {
       </Head>
       <main>
         <BaseLayout>
-        <div className="right_content">
-            <h1> "A <span> quote  </span> that fits"</h1>
+          <div className="right_content">
+            <h1>
+              {`"`}A <span> quote </span> that fits{`"`}
+            </h1>
           </div>
           <div className="card">
             <div className="card-body new">
@@ -25,7 +27,6 @@ export default function Login() {
               <div className="card-text-center">
                 <form>
                   <p className="card-text">
-                    {" "}
                     USERNAME <br />
                     <input
                       type="text"
@@ -40,18 +41,29 @@ export default function Login() {
                   </p>
                   <p className="card-text">
                     PASSWORD <br />
-                    <input className="input_field" type="text" name="pass" /> <br /> <br />
+                    <input
+                      className="input_field"
+                      type="text"
+                      name="pass"
+                    />{" "}
+                    <br /> <br />
                   </p>
                   <button type="button" className="btn btn-primary_login">
                     Login
-                  </button> 
-                  <br/> <br/>
+                  </button>
+                  <br /> <br />
                   <p className="card-text">
-                     <div className="forgot_password">  
-                     <Link href="/">Forgot Password</Link>
-                      </div>
-                    <br/> <br/>
-                    New? <Link href="/register" style={{color:"rgba(255, 253, 2, 1)"}}>Register Now!!</Link>
+                    <span className="forgot_password">
+                      <Link href="/">Forgot Password</Link>
+                    </span>
+                    <br /> <br />
+                    New?{" "}
+                    <Link
+                      href="/register"
+                      style={{ color: "rgba(255, 253, 2, 1)" }}
+                    >
+                      Register Now!!
+                    </Link>
                   </p>
                 </form>
               </div>
@@ -61,6 +73,4 @@ export default function Login() {
       </main>
     </>
   );
-                    }
-                
-  
+}
