@@ -9,13 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@fullhuman/postcss-purgecss": "^5.0.0",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
-    "mdb-ui-kit": "^6.2.0",
+    "mdb-react-ui-kit": "^6.0.0",
     "next": "13.2.4",
-    "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-preset-env": "^8.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0"
