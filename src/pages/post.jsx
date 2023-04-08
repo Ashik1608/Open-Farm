@@ -21,42 +21,59 @@ export default function Post() {
       <main>
         <BaseLayout>
           <div className="post_body">
-            <h1 className="post_header"> SELECT ROLES </h1>
+            <h1 className="post_header">
+              {" "}
+              SELECT <span> ROLES </span>{" "}
+            </h1>
             <div div className="post_select">
               <button
+                className="role"
                 onClick={() => {
                   setIsDetails(1);
                   setIsOpen(true);
                 }}
               >
                 {" "}
-                Land Owner
+                <h1> Land Owner </h1>
               </button>
               <button
+                className="role"
                 onClick={() => {
                   setIsDetails(2);
                   setIsOpen(true);
                 }}
               >
-                Cultivator
+                <h1> Cultivator </h1>
               </button>
               <button
+                className="role"
                 onClick={() => {
                   setIsDetails(3);
                   setIsOpen(true);
                 }}
               >
                 {" "}
-                soil tester
+                <h1> Soil Tester</h1>
               </button>
               <button
+                className="role"
                 onClick={() => {
                   setIsDetails(4);
                   setIsOpen(true);
                 }}
               >
                 {" "}
-                Transporter
+                <h1> Transporter </h1>
+              </button>
+              <button
+                className="role"
+                onClick={() => {
+                  setIsDetails(5);
+                  setIsOpen(true);
+                }}
+              >
+                {" "}
+                <h1> Storage </h1>
               </button>
               <Modal
                 className="post_bg"
@@ -129,11 +146,217 @@ export default function Post() {
                     </div>
                   </div>
                 ) : isDetails == 2 ? (
-                  <h1> gtgt</h1>
+                  <div class="card name details">
+                    <div class="card-body post">
+                      <form>
+                        <h5 class="card-title">Cultivator</h5>
+                        <p class="card-text">
+                          Years oF Experience:
+                          <input
+                            type="text"
+                            className="input_post"
+                            placeholder=" in numbers"
+                          />
+                        </p>
+                        <p class="card-text">
+                          Location :
+                          <input type="text" className="input_post" />
+                        </p>
+                        <p class="card-text">
+                          Requirement :
+                          <select className="input_post">
+                            <option value="testing">Open To Test</option>
+                            <option value="cultivating">
+                              Opten To Cultivate
+                            </option>
+                            <option value="storing">Open To Store</option>
+                            <option value="transporting">
+                              Open To Transport
+                            </option>
+                          </select>
+                        </p>
+                        <p class="card-text">
+                          Description:
+                          <br />
+                          <textarea
+                            className="input_post"
+                            name="desc"
+                            rows="4"
+                            cols="50"
+                            onChange={(event) => {
+                              setDesc({ ...desc, descrip: event.target.value });
+                            }}
+                            value={desc.descrip}
+                          >
+                            {" "}
+                          </textarea>
+                        </p>
+
+                        <button type="button" class="btn btn-primary_login ">
+                          POST
+                        </button>
+                      </form>
+                    </div>
+                  </div>
                 ) : isDetails == 3 ? (
-                  <h1> kbkb</h1>
+                  <div class="card name details">
+                    <div class="card-body post">
+                      <form>
+                        <h5 class="card-title">Cultivator</h5>
+                        <p class="card-text">
+                          Years oF Experience:
+                          <input
+                            type="text"
+                            className="input_post"
+                            placeholder=" in numbers"
+                          />
+                        </p>
+                        <p class="card-text">
+                          Location :
+                          <input type="text" className="input_post" />
+                        </p>
+                        <p class="card-text">
+                          Requirement :
+                          <select className="input_post">
+                            <option value="testing">Open To Test</option>
+                            <option value="cultivating">
+                              Opten To Cultivate
+                            </option>
+                            <option value="storing">Open To Store</option>
+                            <option value="transporting">
+                              Open To Transport
+                            </option>
+                          </select>
+                        </p>
+                        <p class="card-text">
+                          Description:
+                          <br />
+                          <textarea
+                            className="input_post"
+                            name="desc"
+                            rows="4"
+                            cols="50"
+                            onChange={(event) => {
+                              setDesc({ ...desc, descrip: event.target.value });
+                            }}
+                            value={desc.descrip}
+                          >
+                            {" "}
+                          </textarea>
+                        </p>
+
+                        <button type="button" class="btn btn-primary_login ">
+                          POST
+                        </button>
+                      </form>
+                    </div>
+                  </div>
                 ) : isDetails == 4 ? (
-                  <h1> k k</h1>
+                  <div class="card name details">
+                    <div class="card-body post">
+                      <form>
+                        <h5 class="card-title">Cultivator</h5>
+                        <p class="card-text">
+                          Years oF Experience:
+                          <input
+                            type="text"
+                            className="input_post"
+                            placeholder=" in numbers"
+                          />
+                        </p>
+                        <p class="card-text">
+                          Location :
+                          <input type="text" className="input_post" />
+                        </p>
+                        <p class="card-text">
+                          Requirement :
+                          <select className="input_post">
+                            <option value="testing">Open To Test</option>
+                            <option value="cultivating">
+                              Opten To Cultivate
+                            </option>
+                            <option value="storing">Open To Store</option>
+                            <option value="transporting">
+                              Open To Transport
+                            </option>
+                          </select>
+                        </p>
+                        <p class="card-text">
+                          Description:
+                          <br />
+                          <textarea
+                            className="input_post"
+                            name="desc"
+                            rows="4"
+                            cols="50"
+                            onChange={(event) => {
+                              setDesc({ ...desc, descrip: event.target.value });
+                            }}
+                            value={desc.descrip}
+                          >
+                            {" "}
+                          </textarea>
+                        </p>
+
+                        <button type="button" class="btn btn-primary_login ">
+                          POST
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                ) : isDetails == 5 ? (
+                  <div class="card name details">
+                    <div class="card-body post">
+                      <form>
+                        <h5 class="card-title">Cultivator</h5>
+                        <p class="card-text">
+                          Years oF Experience:
+                          <input
+                            type="text"
+                            className="input_post"
+                            placeholder=" in numbers"
+                          />
+                        </p>
+                        <p class="card-text">
+                          Location :
+                          <input type="text" className="input_post" />
+                        </p>
+                        <p class="card-text">
+                          Requirement :
+                          <select className="input_post">
+                            <option value="testing">Open To Test</option>
+                            <option value="cultivating">
+                              Opten To Cultivate
+                            </option>
+                            <option value="storing">Open To Store</option>
+                            <option value="transporting">
+                              Open To Transport
+                            </option>
+                          </select>
+                        </p>
+                        <p class="card-text">
+                          Description:
+                          <br />
+                          <textarea
+                            className="input_post"
+                            name="desc"
+                            rows="4"
+                            cols="50"
+                            onChange={(event) => {
+                              setDesc({ ...desc, descrip: event.target.value });
+                            }}
+                            value={desc.descrip}
+                          >
+                            {" "}
+                          </textarea>
+                        </p>
+
+                        <button type="button" class="btn btn-primary_login ">
+                          POST
+                        </button>
+                      </form>
+                    </div>
+                  </div>
                 ) : null}
 
                 <button className="close" onClick={() => setIsOpen(false)}>
