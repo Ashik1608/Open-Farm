@@ -11,6 +11,7 @@ export default function App({ Component, pageProps }) {
     supabase.auth.onAuthStateChange((event, session) => {
       console.log(event, session);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session]);
 
   return (

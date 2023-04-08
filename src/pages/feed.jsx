@@ -73,7 +73,7 @@ const ls_bold = League_Spartan({
   subsets: ["latin"],
 });
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const feedData = await prisma.posts.findMany({
     include: {
       profiles: true,
