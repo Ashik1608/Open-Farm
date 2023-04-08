@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AiFillInstagram } from "react-icons/ai";
 
 const Footer = ({ home }) => {
   return (
