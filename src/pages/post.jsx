@@ -33,8 +33,7 @@ export default function Post() {
                   setIsOpen(true);
                 }}
               >
-                {" "}
-                <h3> Land Owner </h3>
+                <h3> Land Owner</h3>
               </button>
               <button
                 className="role"
