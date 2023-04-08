@@ -10,7 +10,9 @@ import {
   MDBBtn,
   MDBRipple,
   MDBBadge,
+  MDBModal,
 } from "mdb-react-ui-kit";
+
 import Image from "next/image";
 import { AiOutlineHeart } from "react-icons/ai";
 import { FaRegCommentDots } from "react-icons/fa";
@@ -22,6 +24,7 @@ import prisma from "@/lib/prisma";
 import { supabase } from "@/lib/initSupabase";
 import { useEffect } from "react";
 import { checkUserLoggedIn } from "@/utils/auth";
+import { useState } from "react";
 
 const loadScript = (src) => {
   return new Promise((resolve) => {
@@ -50,9 +53,10 @@ const displayRazorpay = async (amount) => {
   const options = {
     key: "rzp_test_aLDxDSv5W707v9",
     currency: "INR",
-    amount: 10000000,
+    amount: 100000,
     name: "Alluvial Soil",
-    description: "Transporting service required to move harvested rice grains from Avadi to Central Market",
+    description:
+      "Transporting service required to move harvested rice grains from Avadi to Central Market",
 
     handler: function (response) {
       alert(response.razorpay_payment_id);
@@ -94,7 +98,9 @@ export default function Feed({ feed, profile }) {
   const router = useRouter();
   const session = useSession();
 
+  const [basicModal, setBasicModal] = useState(false);
 
+  const toggleShow = () => setBasicModal(!basicModal);
 
   return (
     <>
@@ -167,6 +173,7 @@ export default function Feed({ feed, profile }) {
                 </MDBCardBody>
               </MDBCard>
             </div>
+
             <div className="col-md-6">
               <div className="d-flex justify-content-start align-items-center mb-2">
                 {[1, 2, 3, 4, 5, 6].map((item, i) => (
