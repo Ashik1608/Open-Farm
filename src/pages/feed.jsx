@@ -330,7 +330,7 @@ export default function Feed({ feed, profile }) {
                   <div className="custom-in-bg p-2 px-3 rounded-5 d-flex justify-content-between align-items-center">
                     <h6 className="mb-0">Rs. 500 /-</h6>
                     <MDBBtn
-                      onClick={displayRazorpay}
+                      href="#"
                       className="bg-primary text-secondary px-2 py-1 rounded-pill text-capitalize"
                     >
                       Say thanks!
@@ -358,7 +358,7 @@ export default function Feed({ feed, profile }) {
                   <div className="custom-in-bg p-2 px-3 rounded-5 d-flex justify-content-between align-items-center">
                     <h6 className="mb-0">Rs. 800 /-</h6>
                     <MDBBtn
-                      href="#"
+                      onClick={displayRazorpay}
                       className="bg-primary text-secondary px-2 py-1 rounded-pill text-capitalize"
                     >
                       Pay them!
