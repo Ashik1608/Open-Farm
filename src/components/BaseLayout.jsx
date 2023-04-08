@@ -9,12 +9,12 @@ const ls = League_Spartan({
 
 const BaseLayout = ({ home, children }) => {
   return (
-    <section className={`${ls.className} container-fluid py-3`}>
+    <section className={`${ls.className} container-fluid pt-1 pb-3`}>
       <Header isHome={home} />
-      <hr className="mb-5" />
+      <hr className="mb-5 mt-0" />
       {children}
       <hr className="mt-5" />
-      <Footer />
+      <Footer isHome={home} />
     </section>
   );
 };

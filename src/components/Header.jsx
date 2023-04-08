@@ -5,13 +5,31 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { BsCaretDownFill } from "react-icons/bs";
 import Image from "next/image";
 import { League_Spartan } from "next/font/google";
+import { useEffect, useState } from "react";
+import { supabase } from "../lib/initSupabase";
+import { useRouter } from "next/router";
+import { MDBBtn } from "mdb-react-ui-kit";
 
 const ls_bold = League_Spartan({
   weight: "700",
   subsets: ["latin"],
 });
 
-const Header = (isHome) => {
+const Header = ({ isHome }) => {
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    const { error } = await supabase.auth.signOut();
+
+    if (error) {
+      console.error(error);
+    } else {
+      // redirect to login page
+      router.push("/login");
+      console.log("Logged out");
+    }
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg">
@@ -85,6 +103,10 @@ const Header = (isHome) => {
                   </a>
                 </li>
               </ul>
+
+              <MDBBtn className="d-none d-md-block" onClick={handleLogout}>
+                Logout
+              </MDBBtn>
 
               <ul className="navbar-nav flex-row bg-secondary rounded-pill px-1 py-0">
                 <li className="nav-item">

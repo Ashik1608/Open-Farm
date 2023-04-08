@@ -1,13 +1,26 @@
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import BaseLayout from "@/components/BaseLayout";
 import { useState } from "react";
+import { Auth } from "@supabase/auth-ui-react";
+import { ThemeSupa } from "@supabase/auth-ui-shared";
+import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
+import { checkUserLoggedIn } from "../utils/auth";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 export default function Login() {
-  const [user, setUser] = useState({ name: "" });
-  const [pass,setPass] = useState({passwrd:""})
-  return( 
+  const session = useSession();
+  const supabase = useSupabaseClient();
+  const router = useRouter();
+
+  // useEffect(() => {
+  //   supabase.auth.onAuthStateChange((event, session) => {
+  //     console.log(event, session);
+  //   });
+  // }, [session]);
+
+  return (
     <>
       <Head>
         <title>Open Farm | Login</title>
@@ -16,65 +29,29 @@ export default function Login() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <BaseLayout>
-        <div className="login">     
-          <div className="card name register">
-            <div className="card-body new">
-              <h3 className="card-title">Login</h3>
-              <div className="card-text-center">
-                <form>
-                  <p className="card-text">
-                    USERNAME <br />
-                    <input
-                      type="text"
-                      className="input_field"
-                      onChange={(event) => {
-                        setUser({ ...user, name: event.target.value });
-                      }}
-                      value={user.name}
-                    />
-                    <br />
-                    <br />
-                  </p>
-                  <p className="card-text">
-                    PASSWORD <br />
-                    <input
-                      className="input_field"
-                      type="text"
-                      name="pass"
-                      onChange={(event) => {
-                        setPass({ ...pass, passwrd: event.target.value });
-                      }}
-                      value={pass.passwrd}
-                    />{" "}
-                    <br /> <br />
-                  </p>
-                  <button type="button" className="btn btn-primary_login">
-                    Login
-                  </button>
-                  <br /> <br />
-                  <p className="card-text">
-                    <span className="forgot_password">
-                      <Link href="/">Forgot Password</Link>
-                    </span>
-                    <br /> <br />
-                    New?{" "}
-                    <Link
-                      href="/register"
-                      style={{ color: "rgba(255, 253, 2, 1)" }}
-                    >
-                      Register Now!!
-                    </Link>
-                  </p>
-                </form>
-              </div>
+        <BaseLayout home>
+          <div className="login justify-content-center align-items-center">
+            <div
+              className="bg-secondary rounded-5 p-3"
+              style={{ width: "20rem" }}
+            >
+              <h5 className="text-center fw-bold mb-3">Login/SignUp</h5>
+              <Auth
+                supabaseClient={supabase}
+                appearance={{ theme: ThemeSupa }}
+                theme="dark"
+              />
             </div>
-          </div>
-          < div className="right_content">     
-          <h1>
-              {`"`}A <span> quote </span> that fits{`"`}
-            </h1>
-          </div>
+
+            <div className="w-50 ms-5">
+              <h1>
+                {`"`}Farming is a <span className="text-primary">unique</span>{" "}
+                combination of nature, economics, and culture.{`"`}
+              </h1>
+              <h1 className="text-primary d-flex justify-content-end align-items-center w-100">
+                - Wendell Berry
+              </h1>
+            </div>
           </div>
         </BaseLayout>
       </main>

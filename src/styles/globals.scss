@@ -192,3 +192,20 @@ html {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
 }
+
+.dot-pattern {
+  background: linear-gradient(
+        90deg,
+        rgb(var(--background-end-rgb)) 21px,
+        transparent 1%
+      )
+      center,
+    linear-gradient(rgb(var(--background-end-rgb)) 21px, transparent 1%) center,
+    #a799cc;
+  background-size: 22.9px 22.9px;
+  height: 80vh;
+}
+
+.vh-75 {
+  height: 75vh;
+}

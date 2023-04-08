@@ -14,7 +14,7 @@ export default function Home() {
       </Head>
       <main>
         <BaseLayout home>
-          <section className="custom-bg">
+          <section className="dot-pattern mt-n4 mb-n5">
             <div className="container vh-75 d-flex flex-column justify-content-center align-items-center">
               <h1 className="display-1 bold text-center text-primary">
                 Connect, Collaborate and Cultivate.
@@ -25,12 +25,15 @@ export default function Home() {
               </h4>
               <div>
                 <MDBBtn
-                  className="btn-grad border-0 px-3 fs-5 shadow"
+                  className="bg-secondary custom-shadow rounded-pill text-capitalize bg-btn"
                   href="/home"
                 >
                   Get Started!
                 </MDBBtn>
-                <MDBBtn className="ms-4 px-3 fs-5 btn-grey text-dark border-0 shadow">
+                <MDBBtn
+                  className="bg-secondary custom-shadow rounded-pill text-capitalize bg-btn ms-3"
+                  href="/home"
+                >
                   <BsGithub className="mb-1 me-2" />
                   Github
                 </MDBBtn>
