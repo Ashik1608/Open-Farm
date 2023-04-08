@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AiFillInstagram } from "react-icons/ai";
 
 const Footer = () => {
   return (
@@ -7,75 +8,58 @@ const Footer = () => {
         <footer className="text-center text-md-start">
           <div className="row">
             <div className="col-md-3 mx-auto">
-              <p className="fw-bold mb-4 text-orange">Form a Company</p>
+              <p className="fw-bold mb-4 text-orange">Contact Us</p>
               <hr />
               <p className="mt-2 fs-small">
-                <Link href="/" className="text-muted">
-                  Private Limited Company
-                </Link>
+                <h3>
+                  {" "}
+                  <Link href="www.google.coms" className="text-muted">
+                    {" "}
+                    <AiFillInstagram />
+                  </Link>{" "}
+                </h3>
               </p>
               <p className="mt-2 fs-small">
-                <Link href="/" className="text-muted">
-                  Limited Liability Partnership
-                </Link>
+                <h3>
+                  {" "}
+                  <Link href="www.google.coms" className="text-muted">
+                    {" "}
+                    <AiFillInstagram />{" "}
+                  </Link>{" "}
+                </h3>
               </p>
               <p className="mt-2 fs-small">
-                <Link href="/" className="text-muted">
-                  One Person Company
-                </Link>
-              </p>
-              <p className="mt-2 fs-small">
-                <Link href="/" className="text-muted">
-                  Section 8 Company Registration
-                </Link>
-              </p>
-              <p className="mt-2 fs-small">
-                <Link href="/" className="text-muted">
-                  Nidhi Company Registration
-                </Link>
-              </p>
-              <p className="mt-2 fs-small">
-                <Link href="/" className="text-muted">
-                  Farmer Producer Company
-                </Link>
-              </p>
-              <p className="mt-2 fs-small">
-                <Link href="/" className="text-muted">
-                  MSME Registration
-                </Link>
-              </p>
-              <p className="mt-2 fs-small">
-                <Link href="/" className="text-muted">
-                  Company Registration in Bangalore
-                </Link>
+                <h3>
+                  {" "}
+                  <Link href="www.google.coms" className="text-muted">
+                    {" "}
+                    <AiFillInstagram />{" "}
+                  </Link>{" "}
+                </h3>
               </p>
             </div>
+
             <div className="col-md-3 mx-auto text-center">
-              <p className="fw-bold mb-4 text-orange">Registrations</p>
+              <p className="fw-bold mb-4 text-orange">Pages</p>
               <hr />
               <p className="mt-2 fs-small">
-                <Link href="/" className="text-muted">
-                  FSSAI License
+                <Link href="feed" className="text-muted">
+                  DASHBOARD
                 </Link>
               </p>
               <p className="mt-2 fs-small">
-                <Link href="/" className="text-muted">
-                  Import Export Code
+                <Link href="login" className="text-muted">
+                  LOGIN
                 </Link>
               </p>
               <p className="mt-2 fs-small">
-                <Link href="/" className="text-muted">
-                  Trademark Registration
+                <Link href="registration" className="text-muted">
+                  REGISTRATION
                 </Link>
               </p>
               <p className="mt-2 fs-small">
-                <Link href="/" className="text-muted">
-                  GST Registration
-                </Link>
-              </p>
-              <p className="mt-2 fs-small">
-                <Link href="/" className="text-muted">
-                  DSC Registration
+                <Link href="post" className="text-muted">
+                  POST
                 </Link>
               </p>
             </div>

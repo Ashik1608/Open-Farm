@@ -34,7 +34,7 @@ export default function Post() {
                 }}
               >
                 {" "}
-                <h1> Land Owner </h1>
+                <h3> Land Owner </h3>
               </button>
               <button
                 className="role"
@@ -43,7 +43,7 @@ export default function Post() {
                   setIsOpen(true);
                 }}
               >
-                <h1> Cultivator </h1>
+                <h3>Cultivator</h3>
               </button>
               <button
                 className="role"
@@ -53,7 +53,7 @@ export default function Post() {
                 }}
               >
                 {" "}
-                <h1> Soil Tester</h1>
+                <h3> Soil Tester</h3>
               </button>
               <button
                 className="role"
@@ -63,7 +63,7 @@ export default function Post() {
                 }}
               >
                 {" "}
-                <h1> Transporter </h1>
+                <h3> Transporter </h3>
               </button>
               <button
                 className="role"
@@ -73,7 +73,7 @@ export default function Post() {
                 }}
               >
                 {" "}
-                <h1> Storage </h1>
+                <h3> Storage </h3>
               </button>
               <Modal
                 className="post_bg"
