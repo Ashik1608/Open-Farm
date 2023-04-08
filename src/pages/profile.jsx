@@ -98,7 +98,7 @@ const Profile = ({ user }) => {
   return (
     <main>
       <Head>
-        <title>G-Learner | Profile</title>
+        <title>Open Farm | Profile</title>
         <meta name="description" content="AI powered LMS" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />

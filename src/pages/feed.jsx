@@ -16,24 +16,42 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { FaRegCommentDots } from "react-icons/fa";
 import { FiSend } from "react-icons/fi";
 import { AiOutlinePlusCircle } from "react-icons/ai";
-import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useSession } from "@supabase/auth-helpers-react";
+import prisma from "@/lib/prisma";
+import { supabase } from "@/lib/initSupabase";
+import { useEffect } from "react";
+import { checkUserLoggedIn } from "@/utils/auth";
 
 const ls_bold = League_Spartan({
   weight: "700",
   subsets: ["latin"],
 });
 
-export default function Feed() {
+export const getStaticProps = async () => {
+  const feedData = await prisma.posts.findMany({
+    include: {
+      profiles: true,
+    },
+  });
+
+  const feed = JSON.parse(JSON.stringify(feedData));
+  const { data } = await checkUserLoggedIn();
+
+  const profile = await prisma.profiles.findFirst({
+    where: {
+      id: "54edc236-6745-4d33-aadd-9d2cfcb418d7",
+    },
+  });
+  console.log("profile", profile);
+  return {
+    props: { feed, profile },
+  };
+};
+
+export default function Feed({ feed, profile }) {
   const router = useRouter();
   const session = useSession();
-
-  // useEffect(() => {
-  //   if (!session) {
-  //     router.push("/login");
-  //   }
-  // }, [session]);
 
   return (
     <>
@@ -91,14 +109,14 @@ export default function Feed() {
                     </p>
                   </MDBCardTitle>
                   <div>
-                    <h2 className="mb-0">Jane Doe</h2>
-                    <h6 className="text-muted">@janedoe</h6>
+                    <h2 className="mb-0">{profile.full_name}</h2>
+                    <h6 className="text-muted">@{profile.username}</h6>
                     Hello World, I am a web developer and designer. I love to
                     code and design beautiful websites.
                   </div>
                   <hr className="text-muted" />
                   <MDBBtn
-                    href="#"
+                    href="/profile"
                     className="bg-secondary custom-shadow rounded-pill text-capitalize bg-btn"
                   >
                     My Profile
@@ -155,7 +173,7 @@ export default function Feed() {
                   ></textarea>
                 </div>
               </div>
-              {[1, 2, 3, 4, 5, 6].map((item, i) => (
+              {feed.map((item, i) => (
                 <MDBCard className="bg-secondary my-4" key={i}>
                   <MDBCardBody>
                     <MDBCardTitle>
@@ -175,19 +193,20 @@ export default function Feed() {
                           />
                         </MDBRipple>
                         <span>
-                          <h6 className="fs-6 text-muted">@harrypotter</h6>
+                          <h6 className="fs-6 text-muted">
+                            @{item.profiles.username}
+                          </h6>
                           <p className="fs-6 text-primary">
-                            Harry Potter
-                            <span className="text-muted"> • 1hr ago</span>
+                            {item.profiles.full_name}
+                            <span className="text-muted text-capitalize">
+                              {" "}
+                              • {new Date(item.updated_at).toLocaleTimeString()}
+                            </span>
                           </p>
                         </span>
                       </div>
                     </MDBCardTitle>
-                    <MDBCardText>
-                      In need of a soil analyst for my farm, which is located in
-                      the outskirts of the city. Please contact me if you are
-                      interested in working with me.
-                    </MDBCardText>
+                    <MDBCardText>{item.description}</MDBCardText>
                     <Image
                       src="https://www.ultraupdates.com/wp-content/uploads/2016/09/colorful-twitter-header.jpg"
                       className="rounded-2 bg-dark"
@@ -196,6 +215,13 @@ export default function Feed() {
                       alt="Profile Picture"
                       priority
                     />
+                    <div className="mt-2">
+                      <span class="badge badge-primary">{item.area}</span>
+                      <span class="badge badge-secondary mx-3">
+                        {item.soil_type}
+                      </span>
+                      <span class="badge badge-success">{item.location}</span>
+                    </div>
                     <div className="mt-3 d-flex justify-content-between align-items-center">
                       <div>
                         <MDBBtn

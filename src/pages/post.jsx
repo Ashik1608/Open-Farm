@@ -5,11 +5,32 @@ import BaseLayout from "@/components/BaseLayout";
 import Modal from "react-modal";
 import { useState } from "react";
 import { MDBBtn } from "mdb-react-ui-kit";
+import { supabase } from "@/lib/initSupabase";
 
 export default function Post() {
   const [isOpen, setIsOpen] = useState(false);
   const [isDetails, setIsDetails] = useState(0);
   const [desc, setDesc] = useState({ descrip: "" });
+
+  const [info, setInfo] = useState({
+    title: "",
+    description: "",
+    location: "",
+    area: "",
+    image: "",
+    soil_type: "",
+    user_id: "54edc236-6745-4d33-aadd-9d2cfcb418d7",
+  });
+
+  const onPost = async (e) => {
+    e.preventDefault();
+    const { data, error } = await supabase.from("posts").insert([info]);
+    if (error) {
+      console.log(error);
+    }
+    console.log(data);
+  };
+
   return (
     <>
       <Head>
@@ -91,6 +112,9 @@ export default function Post() {
                             type="text"
                             className="input_post"
                             placeholder=" in square meters"
+                            onChange={(e) =>
+                              setInfo({ ...info, area: e.target.value })
+                            }
                           />
                         </p>
                         <p class="card-text">
@@ -99,11 +123,22 @@ export default function Post() {
                         </p>
                         <p class="card-text">
                           Location :
-                          <input type="text" className="input_post" />
+                          <input
+                            type="text"
+                            className="input_post"
+                            onChange={(e) =>
+                              setInfo({ ...info, location: e.target.value })
+                            }
+                          />
                         </p>
                         <p class="card-text">
                           Status :
-                          <select className="input_post">
+                          <select
+                            className="input_post"
+                            onChange={(e) =>
+                              setInfo({ ...info, soil_type: e.target.value })
+                            }
+                          >
                             <option value="Start">Starting Stage</option>
                             <option value="tested">soil Tested</option>
                             <option value="cultivate">cultivated</option>
@@ -130,8 +165,8 @@ export default function Post() {
                             name="desc"
                             rows="4"
                             cols="50"
-                            onChange={(event) => {
-                              setDesc({ ...desc, descrip: event.target.value });
+                            onChange={(e) => {
+                              setInfo({ ...info, description: e.target.value });
                             }}
                             value={desc.descrip}
                           >
@@ -139,7 +174,11 @@ export default function Post() {
                           </textarea>
                         </p>
 
-                        <button type="button" class="btn btn-primary_login ">
+                        <button
+                          type="button"
+                          class="btn btn-primary_login "
+                          onClick={onPost}
+                        >
                           POST
                         </button>
                       </form>
