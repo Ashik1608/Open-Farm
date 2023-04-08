@@ -34,7 +34,7 @@ export default function Post() {
                 }}
               >
                 {" "}
-                <h3> Land Owner </h3>
+                <h3>Land Owner</h3>
               </button>
               <button
                 className="role"

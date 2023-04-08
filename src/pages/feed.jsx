@@ -20,6 +20,47 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useSession } from "@supabase/auth-helpers-react";
 
+const loadScript = (src) => {
+  return new Promise((resolve) => {
+    const script = document.createElement("script");
+    script.src = src;
+
+    script.onload = () => {
+      resolve(true);
+    };
+
+    script.onerror = () => {
+      resolve(false);
+    };
+
+    document.body.appendChild(script);
+  });
+};
+
+const displayRazorpay = async (amount) => {
+  const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
+  if (!res) {
+    alert("You re offline...");
+    return;
+  }
+
+  const options = {
+    key: "rzp_test_aLDxDSv5W707v9",
+    currency: "INR",
+    amount: 10000000,
+    name: "Alluvial Soil",
+    description: "Transporting service required to move harvested rice grains from Avadi to Central Market",
+
+    handler: function (response) {
+      alert(response.razorpay_payment_id);
+      alert("Payment Successful");
+    },
+  };
+
+  const paymentObject = new window.Razorpay(options);
+  paymentObject.open();
+};
+
 const ls_bold = League_Spartan({
   weight: "700",
   subsets: ["latin"],
@@ -28,6 +69,8 @@ const ls_bold = League_Spartan({
 export default function Feed() {
   const router = useRouter();
   const session = useSession();
+
+
 
   // useEffect(() => {
   //   if (!session) {
@@ -254,7 +297,7 @@ export default function Feed() {
                   <div className="custom-in-bg p-2 px-3 rounded-5 d-flex justify-content-between align-items-center">
                     <h6 className="mb-0">Rs. 500 /-</h6>
                     <MDBBtn
-                      href="#"
+                      onClick={displayRazorpay}
                       className="bg-primary text-secondary px-2 py-1 rounded-pill text-capitalize"
                     >
                       Say thanks!
