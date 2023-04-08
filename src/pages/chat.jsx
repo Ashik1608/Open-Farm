@@ -6,52 +6,34 @@ const socket = io("http://localhost:4000");
 function Chat() {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
-  const [username, setUsername] = useState("");
 
   useEffect(() => {
-    const socket = io("http://localhost:3000");
-
-    socket.on("message", (data) => {
-      setMessages((messages) => [...messages, data]);
+    socket.on("message", (message) => {
+      setMessages((messages) => [...messages, message]);
     });
-
-    return () => {
-      socket.disconnect();
-    };
   }, []);
 
-  const sendMessage = () => {
-    const socket = io("http://localhost:3000");
-
-    const data = {
-      username,
-      message,
-    };
-
-    socket.emit("message", data);
-
+  function handleSubmit(event) {
+    event.preventDefault();
+    socket.emit("message", message);
     setMessage("");
-    socket.disconnect();
-  };
+  }
 
   return (
     <div>
-      <div>
-        {messages.map((msg, index) => (
-          <div key={index}>
-            <span>{msg.username}: </span>
-            <span>{msg.message}</span>
-          </div>
+      <ul>
+        {messages.map((message, index) => (
+          <li key={index}>{message}</li>
         ))}
-      </div>
-      <div>
+      </ul>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          onChange={(event) => setMessage(event.target.value)}
         />
-        <button onClick={sendMessage}>Send</button>
-      </div>
+        <button type="submit">Send</button>
+      </form>
     </div>
   );
 }
