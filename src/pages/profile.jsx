@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { use, useState } from "react";
 import { Card, Button, Input, notification } from "antd";
 import { AiOutlineDownCircle } from "react-icons/ai";
 import { RiCake2Line } from "react-icons/ri";
@@ -32,11 +32,13 @@ export const getServerSideProps = async (context) => {
 
 const Profile = ({ user }) => {
   const [username, setUsername] = useState("");
-  const [website, setWebsite] = useState("");
+  const [location, setLocation] = useState("");
   const [bio, setBio] = useState("");
   const [full_name, setFullName] = useState("");
   const [avatar_url, setAvatarUrl] = useState("");
   const [edit, setEdit] = useState(false);
+  const [phone, setPhone] = useState("");
+  const [dob, setDob] = useState("");
 
   const openNotification = (message, description) => {
     notification.open({
@@ -57,8 +59,10 @@ const Profile = ({ user }) => {
     if (data) {
       setUsername(data.username);
       setFullName(data.full_name);
-      setWebsite(data.website);
+      setLocation(data.location);
       setBio(data.bio);
+      setPhone(data.phone);
+      setDob(data.dob);
       setAvatarUrl(data.avatar_url);
       console.log(data);
     } else if (error && status !== 406) {
@@ -69,7 +73,9 @@ const Profile = ({ user }) => {
   async function updateProfile({
     username,
     full_name,
-    website,
+    location,
+    phone,
+    dob,
     bio,
     avatar_url,
   }) {
@@ -77,7 +83,9 @@ const Profile = ({ user }) => {
       id: user.id,
       username,
       full_name,
-      website,
+      location,
+      phone,
+      dob,
       bio,
       avatar_url,
       updated_at: new Date().toISOString(),
@@ -135,23 +143,16 @@ const Profile = ({ user }) => {
                 >
                   <BiEdit className="edit-icon" />
                 </Button>
-
                 <h2 className="gradient-text mt-4 text-capitalize">
                   {full_name ? full_name : "John Doe"}
                 </h2>
-                <p>
-                  {bio
-                    ? bio
-                    : "I'm an aspiring web developer and I'm currently learning ReactJS. I'm also a huge fan of anime and I love to play video games."}
-                </p>
-                <Button className="btn-grad border-0 px-3 shadow custom-in-bg text-custom">
-                  <RiCake2Line className="mb-1 me-2" />
-                  Birthday: 1-1-2000
-                </Button>
-                <Button className="btn-grad border-0 px-3 shadow mt-3 custom-in-bg text-custom">
-                  <FiBookOpen className="mb-1 me-2" />
-                  Currently: Working as a Soil Analyst
-                </Button>
+                <h2 className="display_profile"> {username} </h2>
+                <br />
+                <h2 className="display_profile"> {location} </h2>
+                <br />
+                <h2 className="display_profile"> {bio} </h2>
+                <br />
+                <h2 className="display_profile"> {phone} </h2>
               </div>
             ) : (
               <div className="position-relative">
@@ -164,7 +165,9 @@ const Profile = ({ user }) => {
                     updateProfile({
                       username,
                       full_name,
-                      website,
+                      location,
+                      phone,
+                      dob,
                       bio,
                       avatar_url: url,
                     });
@@ -196,10 +199,10 @@ const Profile = ({ user }) => {
                 />
                 <Input
                   className="mt-2"
-                  addonBefore={"Website"}
-                  placeholder={website}
+                  addonBefore={"Location"}
+                  placeholder={location}
                   onChange={(e) => {
-                    setWebsite(e.target.value);
+                    setLocation(e.target.value);
                   }}
                 />
                 <Input
@@ -210,13 +213,31 @@ const Profile = ({ user }) => {
                     setBio(e.target.value);
                   }}
                 />
+                <Input
+                  className="mt-2"
+                  addonBefore={"Dob"}
+                  placeholder={dob}
+                  onChange={(e) => {
+                    setBio(e.target.value);
+                  }}
+                />
+                <Input
+                  className="mt-2"
+                  addonBefore={"Phone"}
+                  placeholder={phone}
+                  onChange={(e) => {
+                    setPhone(e.target.value);
+                  }}
+                />
                 <Button
                   className="btn-grad border-0 px-3 shadow mt-3"
                   onClick={() => {
                     updateProfile({
                       username,
                       full_name,
-                      website,
+                      location,
+                      dob,
+                      phone,
                       bio,
                       avatar_url,
                     });
@@ -228,69 +249,6 @@ const Profile = ({ user }) => {
               </div>
             )}
           </Card>
-        </section>
-        <section className="container mt-5">
-          <hr />
-          <h3 className="mt-4">Your Resources</h3>
-          <div className="row">
-            <div className="col-md-4">
-              <Card className="shadow border-0 py-2 my-3 text-center bg-secondary text-custom">
-                <h2 className="gradient-text">HTML</h2>
-                <p>
-                  React is a JavaScript library for building user interfaces.
-                </p>
-                <Button className="btn-grad border-0 px-3 shadow">
-                  <AiOutlineDownCircle className="mb-1 me-2" />
-                  Download
-                </Button>
-              </Card>
-            </div>
-            <div className="col-md-4">
-              <Card className="shadow border-0 py-2 my-3 text-center bg-secondary text-custom">
-                <h2 className="gradient-text">CSS</h2>
-                <p>
-                  React is a JavaScript library for building user interfaces.
-                </p>
-                <Button className="btn-grad border-0 px-3 shadow">
-                  <AiOutlineDownCircle className="mb-1 me-2" />
-                  Download
-                </Button>
-              </Card>
-            </div>
-            <div className="col-md-4 d-flex justify-content-between align-items-center">
-              <BsArrowRightCircle className="me-2" size="30px" />
-              <h3 className="mb-0">Videos</h3>
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="col-md-4">
-              <Card className="shadow border-0 py-2 my-3 text-center bg-secondary text-custom">
-                <h2 className="gradient-text">How to learn?</h2>
-                <p>A guide to learning how to learn.</p>
-                <Button className="btn-grad border-0 px-3 shadow">
-                  <AiOutlineDownCircle className="mb-1 me-2" />
-                  Show
-                </Button>
-              </Card>
-            </div>
-            <div className="col-md-4">
-              <Card className="shadow border-0 py-2 my-3 text-center bg-secondary text-custom">
-                <h2 className="gradient-text">Architecture</h2>
-                <p>
-                  The architecture is a set of structures needed for system.
-                </p>
-                <Button className="btn-grad border-0 px-3 shadow">
-                  <AiOutlineDownCircle className="mb-1 me-2" />
-                  Show
-                </Button>
-              </Card>
-            </div>
-            <div className="col-md-4 d-flex justify-content-between align-items-center">
-              <BsArrowRightCircle className="me-2" size="30px" />
-              <h3 className="mb-0">Blogs</h3>
-            </div>
-          </div>
         </section>
       </BaseLayout>
     </main>
