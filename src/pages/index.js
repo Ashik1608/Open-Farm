@@ -26,7 +26,7 @@ export default function Home() {
               <div>
                 <MDBBtn
                   className="bg-secondary custom-shadow rounded-pill text-capitalize bg-btn"
-                  href="/home"
+                  href="/feed"
                 >
                   Get Started!
                 </MDBBtn>
