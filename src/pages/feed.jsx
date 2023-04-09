@@ -59,7 +59,7 @@ const displayRazorpay = async (amount) => {
       "Transporting service required to move harvested rice grains from Avadi to Central Market",
 
     handler: function (response) {
-      alert(response.razorpay_payment_id);
+      alert(`Transaction ID: ${response.razorpay_payment_id}`);
       alert("Payment Successful");
     },
   };
