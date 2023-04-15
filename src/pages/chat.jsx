@@ -1,41 +1,44 @@
-import { useEffect, useState } from "react";
-import io from "socket.io-client";
+import React, { useContext } from "react";
+import { Context } from "../context";
+import router, { userouter } from "next/router";
+import axios from "axios";
 
-const socket = io("http://localhost:4000");
+export default function Auth() {
+  const { username, setUsername, secret, setSecret } = useContext(Context);
 
-function Chat() {
-  const [messages, setMessages] = useState([]);
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    socket.on("message", (message) => {
-      setMessages((messages) => [...messages, message]);
-    });
-  }, []);
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    socket.emit("message", message);
-    setMessage("");
+  function onSubmit(e) {
+    e.preventDefault();
+    if (username.length === 0 || secret.length === 0) return;
+    axios
+      .put(
+        "https://api.chatengine.io/users/",
+        { username, secret },
+        { headers: { "Private-key": "86326f80-d461-444e-ba05-fcaf27254f46" } }
+      )
+      .then((r) => router.push("/chats"));
   }
-
   return (
-    <div>
-      <ul>
-        {messages.map((message, index) => (
-          <li key={index}>{message}</li>
-        ))}
-      </ul>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={message}
-          onChange={(event) => setMessage(event.target.value)}
-        />
-        <button type="submit">Send</button>
-      </form>
+    <div className="background">
+      <div className="auth-container">
+        <form className="auth-form" onSubmit={(e) => onSubmit(e)}>
+          <div className="auth-title"> NextJs Chat</div>
+          <div className="input-container">
+            <input
+              placeholder="Email"
+              className="text-input"
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              placeholder="Password"
+              className="text-input"
+              onChange={(e) => setSecret(e.target.value)}
+            />
+          </div>
+          <button type="submit" className="submit-button">
+            Login/Signup
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
-
-export default Chat;
