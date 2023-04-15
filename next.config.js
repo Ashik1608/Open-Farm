@@ -19,6 +19,8 @@ const nextConfig = {
       "www.fertilizer-machine.net",
       "legacy.eagronom.com",
       "researchleap.com",
+      "www.eweek.com",
+      "i.pinimg.com",
     ],
   },
 };

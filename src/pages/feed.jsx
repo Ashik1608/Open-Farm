@@ -89,7 +89,6 @@ export const getServerSideProps = async () => {
       id: "54edc236-6745-4d33-aadd-9d2cfcb418d7",
     },
   });
-  console.log("profile", profile);
   return {
     props: { feed, profile },
   };
@@ -141,69 +140,79 @@ export default function Feed({ feed, profile }) {
                 ></textarea>
               </div>
             </div>
-            {feed.map((item, i) => (
-              <MDBCard className="bg-secondary my-4" key={i}>
-                <MDBCardBody>
-                  <MDBCardTitle>
-                    <div className="d-flex justify-content-start align-items-start">
-                      <MDBRipple
-                        rippleColor="light"
-                        rippleTag="div"
-                        className="bg-image hover-overlay"
+            {feed.map((item, i) => {
+              console.log(item.imageSrc);
+              return (
+                <MDBCard className="bg-secondary my-4" key={i}>
+                  <MDBCardBody>
+                    <MDBCardTitle>
+                      <div className="d-flex justify-content-start align-items-start">
+                        <MDBRipple
+                          rippleColor="light"
+                          rippleTag="div"
+                          className="bg-image hover-overlay"
+                        >
+                          <Image
+                            src="https://api.dicebear.com/6.x/personas/svg?radius=50"
+                            className="rounded-circle bg-dark custom-border me-3"
+                            width="50"
+                            height="50"
+                            alt="Profile Picture"
+                            priority
+                          />
+                        </MDBRipple>
+                        <span>
+                          <h6 className="fs-6 text-muted">
+                            @{item.profiles.username}
+                          </h6>
+                          <p className="fs-6 text-primary">
+                            {item.profiles.full_name}
+                            <span className="text-muted text-capitalize">
+                              {" "}
+                              • {new Date(item.updated_at).toLocaleTimeString()}
+                            </span>
+                          </p>
+                        </span>
+                      </div>
+                    </MDBCardTitle>
+                    <MDBCardText>{item.title}</MDBCardText>
+                    <Image
+                      src={
+                        item.imageSrc
+                          ? item.imageSrc
+                          : "https://www.eweek.com/wp-content/uploads/2022/05/enterprise-AI.jpg"
+                      }
+                      className="rounded-2 bg-dark"
+                      width="688"
+                      height="300"
+                      alt="Profile Picture"
+                    />
+                    <div className="mt-2">
+                      <MDBBtn>
+                        <button onClick={() => setIsOpen(true)}>
+                          More info
+                        </button>
+                        <Modal
+                          isOpen={isOpen}
+                          onRequestClose={() => setIsOpen(false)}
+                        >
+                          <h1> Modal Content</h1>
+                          <button onClick={() => setIsOpen(false)}>
+                            Close
+                          </button>
+                        </Modal>
+                      </MDBBtn>
+                      <MDBBtn
+                        onClick={displayRazorpay}
+                        className="bg-primary text-secondary px-2 py-1 rounded-pill text-capitalize"
                       >
-                        <Image
-                          src="https://api.dicebear.com/6.x/personas/svg?radius=50"
-                          className="rounded-circle bg-dark custom-border me-3"
-                          width="50"
-                          height="50"
-                          alt="Profile Picture"
-                          priority
-                        />
-                      </MDBRipple>
-                      <span>
-                        <h6 className="fs-6 text-muted">
-                          @{item.profiles.username}
-                        </h6>
-                        <p className="fs-6 text-primary">
-                          {item.profiles.full_name}
-                          <span className="text-muted text-capitalize">
-                            {" "}
-                            • {new Date(item.updated_at).toLocaleTimeString()}
-                          </span>
-                        </p>
-                      </span>
+                        Pay them!
+                      </MDBBtn>
                     </div>
-                  </MDBCardTitle>
-                  <MDBCardText>{item.title}</MDBCardText>
-                  <Image
-                    src="https://www.ultraupdates.com/wp-content/uploads/2016/09/colorful-twitter-header.jpg"
-                    className="rounded-2 bg-dark"
-                    width="688"
-                    height="300"
-                    alt="Profile Picture"
-                    priority
-                  />
-                  <div className="mt-2">
-                    <MDBBtn>
-                      <button onClick={() => setIsOpen(true)}>More info</button>
-                      <Modal
-                        isOpen={isOpen}
-                        onRequestClose={() => setIsOpen(false)}
-                      >
-                        <h1> Modal Content</h1>
-                        <button onClick={() => setIsOpen(false)}>Close</button>
-                      </Modal>
-                    </MDBBtn>
-                    <MDBBtn
-                      onClick={displayRazorpay}
-                      className="bg-primary text-secondary px-2 py-1 rounded-pill text-capitalize"
-                    >
-                      Pay them!
-                    </MDBBtn>
-                  </div>
-                </MDBCardBody>
-              </MDBCard>
-            ))}
+                  </MDBCardBody>
+                </MDBCard>
+              );
+            })}
           </div>
         </BaseLayout>
       </main>

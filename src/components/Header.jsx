@@ -86,7 +86,7 @@ const Header = ({ isHome }) => {
                 </li>
 
                 <li className="nav-item me-3 me-lg-1">
-                  <a className="nav-link" href="#">
+                  <a className="nav-link" href="/chat">
                     <AiOutlineMessage size="25" className="mx-3" />
                   </a>
                 </li>
