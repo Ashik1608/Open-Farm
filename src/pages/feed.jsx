@@ -7,23 +7,14 @@ import {
   MDBCardBody,
   MDBCardTitle,
   MDBCardText,
-  MDBCardImage,
   MDBBtn,
   MDBRipple,
-  MDBBadge,
-  MDBModal,
 } from "mdb-react-ui-kit";
 
 import Image from "next/image";
-import { AiOutlineHeart } from "react-icons/ai";
-import { FaRegCommentDots } from "react-icons/fa";
-import { FiSend } from "react-icons/fi";
-import { AiOutlinePlusCircle } from "react-icons/ai";
 import { useRouter } from "next/router";
 import { useSession } from "@supabase/auth-helpers-react";
 import prisma from "@/lib/prisma";
-import { supabase } from "@/lib/initSupabase";
-import { useEffect } from "react";
 import { checkUserLoggedIn } from "@/utils/auth";
 import { useState } from "react";
 
@@ -102,6 +93,7 @@ export default function Feed({ feed, profile }) {
 
   const toggleShow = () => setBasicModal(!basicModal);
   const [isOpen, setIsOpen] = useState(false);
+  const [modalDescription, setModalDescription] = useState("");
 
   return (
     <>
@@ -114,32 +106,6 @@ export default function Feed({ feed, profile }) {
       <main>
         <BaseLayout>
           <div div className="row">
-            <div className="bg-secondary rounded-5 p-3">
-              <div className="d-flex justify-content-between align-items-center mb-4">
-                <h5 className="mb-0">Create Post</h5>
-                <MDBBtn
-                  href="#"
-                  className="bg-primary h5 mb-0 text-secondary px-2 py-1 rounded-pill text-capitalize"
-                >
-                  Post!
-                </MDBBtn>
-              </div>
-              <div className="d-flex justify-content-start align-items-start">
-                <Image
-                  src="https://api.dicebear.com/6.x/personas/svg?radius=50"
-                  className="rounded-circle bg-dark custom-border me-3"
-                  width="50"
-                  height="50"
-                  alt="Profile Picture"
-                  priority
-                />
-                <textarea
-                  className="form-control bg-secondary text-white border-1 border-dark border-secondary"
-                  placeholder="What's on your mind?"
-                  rows="3"
-                ></textarea>
-              </div>
-            </div>
             {feed.map((item, i) => {
               console.log(item.imageSrc);
               return (
@@ -155,7 +121,7 @@ export default function Feed({ feed, profile }) {
                           <Image
                             src="https://api.dicebear.com/6.x/personas/svg?radius=50"
                             className="rounded-circle bg-dark custom-border me-3"
-                            width="50"
+                            width="60"
                             height="50"
                             alt="Profile Picture"
                             priority
@@ -189,24 +155,31 @@ export default function Feed({ feed, profile }) {
                     />
                     <div className="mt-2">
                       <MDBBtn>
-                        <button onClick={() => setIsOpen(true)}>
+                        <button
+                          onClick={() => {
+                            setIsOpen(true);
+                            setModalDescription(item.description);
+                          }}
+                        >
                           More info
                         </button>
                         <Modal
                           isOpen={isOpen}
                           onRequestClose={() => setIsOpen(false)}
                         >
-                          <h1> Modal Content</h1>
+                          <h1>
+                            <MDBCardText>{modalDescription}</MDBCardText>
+                            <MDBBtn
+                              onClick={displayRazorpay}
+                              className="bg-primary text-secondary px-2 py-1 rounded-pill text-capitalize"
+                            >
+                              Invest
+                            </MDBBtn>
+                          </h1>
                           <button onClick={() => setIsOpen(false)}>
                             Close
                           </button>
                         </Modal>
-                      </MDBBtn>
-                      <MDBBtn
-                        onClick={displayRazorpay}
-                        className="bg-primary text-secondary px-2 py-1 rounded-pill text-capitalize"
-                      >
-                        Pay them!
                       </MDBBtn>
                     </div>
                   </MDBCardBody>

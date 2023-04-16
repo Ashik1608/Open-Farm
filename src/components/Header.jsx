@@ -1,6 +1,6 @@
 import { FiHome } from "react-icons/fi";
 import { AiOutlineMessage } from "react-icons/ai";
-import { BiBell } from "react-icons/bi";
+import { SiFuturelearn } from "react-icons/si";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsCaretDownFill } from "react-icons/bs";
 import Image from "next/image";
@@ -92,8 +92,8 @@ const Header = ({ isHome }) => {
                 </li>
 
                 <li className="nav-item me-3 me-lg-1">
-                  <a className="nav-link" href="#">
-                    <BiBell size="25" className="mx-3" />
+                  <a className="nav-link" href="/learn">
+                    <SiFuturelearn size="25" className="mx-3" />
                   </a>
                 </li>
 
