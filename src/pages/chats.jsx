@@ -12,9 +12,10 @@ const MessageFormSocial = dynamic(() =>
   import("react-chat-engine").then((module) => module.MessageFormSocial)
 );
 
-export default function chats(props) {
+export default function chats() {
   const [showChat, setShowChat] = useState(false);
   const router = useRouter();
+  console.log(router.query);
 
   useEffect(() => {
     if (typeof document !== null) {
@@ -29,6 +30,8 @@ export default function chats(props) {
         <ChatEngine
           height="calc(100ch - 200px)"
           projectID="2a7d21cb-66e0-4817-adfe-f7e492d4de66"
+          userName={router.query.username}
+          userSecret={router.query.secret}
           renderNewMessageForm={() => <MessageFormSocial />}
         />
       </div>

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../context";
-import router, { userouter } from "next/router";
+import Router from "next/router";
 import axios from "axios";
 
 export default function Auth() {
@@ -16,7 +16,9 @@ export default function Auth() {
         { username, secret },
         { headers: { "Private-key": "86326f80-d461-444e-ba05-fcaf27254f46" } }
       )
-      .then((r) => router.push("/chats"));
+      .then((r) =>
+        Router.push({ pathname: "/chats", query: { username, secret } })
+      );
   }
   return (
     <div className="background">
@@ -28,13 +30,11 @@ export default function Auth() {
               placeholder="Email"
               className="text-input"
               onChange={(e) => setUsername(e.target.value)}
-              mail={username}
             />
             <input
               placeholder="Password"
               className="text-input"
               onChange={(e) => setSecret(e.target.value)}
-              pass={secret}
             />
           </div>
           <button type="submit" className="submit-button">
