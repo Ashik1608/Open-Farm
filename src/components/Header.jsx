@@ -41,15 +41,15 @@ const Header = ({ isHome }) => {
                 href="#"
               >
                 <Image
-                  src="https://spline.design/_next/static/chunks/images/spline_logo-c068feca0f6ae756affe68498147df78.png"
+                  src="/Lightbulb.png"
                   width="30"
                   height="30"
-                  alt="Open Farm Logo"
+                  alt="BrainWave Logo"
                   priority
                   className="m-0"
                 />
               </a>
-              <h4 className={`${ls_bold.className} mb-0`}>Open Farm Inc.</h4>
+              <h4 className={`${ls_bold.className} mb-0`}> BrainWave</h4>
             </div>
           ) : (
             <>
@@ -59,10 +59,10 @@ const Header = ({ isHome }) => {
                   href="#"
                 >
                   <Image
-                    src="https://spline.design/_next/static/chunks/images/spline_logo-c068feca0f6ae756affe68498147df78.png"
+                    src="/Lightbulb.png"
                     width="30"
                     height="30"
-                    alt="Open Farm Logo"
+                    alt="BrainWave Logo"
                     priority
                     className="m-0"
                   />
