@@ -1,4 +1,5 @@
 import Head from "next/head";
+import emailjs from "@emailjs/browser";
 import BaseLayout from "@/components/BaseLayout";
 import { League_Spartan } from "next/font/google";
 import Modal from "react-modal";
@@ -53,6 +54,22 @@ const displayRazorpay = async (amount) => {
     handler: function (response) {
       alert(`Transaction ID: ${response.razorpay_payment_id}`);
       alert("Payment Successful");
+
+      emailjs
+        .sendForm(
+          "service_k5e5p5p",
+          "template_qjnvs3f",
+          form.current,
+          "LO8MmCq56MvQqYXDK"
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
     },
   };
 
