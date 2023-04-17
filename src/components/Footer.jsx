@@ -106,13 +106,13 @@ const Footer = ({ home }) => {
               <div className="text-center">
                 <hr />
                 <div className="pb-3">
-                  Made with ❤️ and ☕️ by Open Farm Inc.
+                  Made with ❤️ and ☕️ by BrainWave Inc.
                 </div>
               </div>
             </>
           ) : (
             <div className="text-center mt-n5">
-              Made with ❤️ and ☕️ by Open Farm Inc.
+              Made with ❤️ and ☕️ by BrainWave Inc.
             </div>
           )}
         </footer>

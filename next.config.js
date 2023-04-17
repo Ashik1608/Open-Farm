@@ -21,6 +21,8 @@ const nextConfig = {
       "researchleap.com",
       "www.eweek.com",
       "i.pinimg.com",
+      "media.istockphoto.com",
+      "w0.peakpx.com",
     ],
   },
 };
