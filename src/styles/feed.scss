@@ -1,9 +1,20 @@
-.my-4{
-    justify-items: center;
-    text-align: center;
+.my-4 {
+  justify-items: left;
+  text-align: left;
 }
-.mt-2{
-    display: flex(0.9);
-    justify-content: center;
-    color:black;
+.mt-2 {
+  display: flex(0.9);
+  justify-content: left;
+  color: black;
+}
+button {
+  background-color: #0af1b6; /* Green */
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  color: black;
+  margin-right: 10px;
 }

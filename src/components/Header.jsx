@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "../lib/initSupabase";
 import { useRouter } from "next/router";
 import { MDBBtn } from "mdb-react-ui-kit";
+import Link from "next/link";
 
 const ls_bold = League_Spartan({
   weight: "700",
@@ -76,21 +77,21 @@ const Header = ({ isHome }) => {
 
               <ul className="navbar-nav flex-row d-none d-md-flex">
                 <li className="nav-item me-3 me-lg-1 active">
-                  <a className="nav-link" href="/">
+                  <Link className="nav-link" href="/">
                     <FiHome size="25" className="text-primary mx-3" />
-                  </a>
+                  </Link>
                 </li>
 
                 <li className="nav-item me-3 me-lg-1">
-                  <a className="nav-link" href="/chat">
+                  <Link className="nav-link" href="/chat">
                     <AiOutlineMessage size="25" className="mx-3" />
-                  </a>
+                  </Link>
                 </li>
 
                 <li className="nav-item me-3 me-lg-1">
-                  <a className="nav-link" href="/learn">
+                  <Link className="nav-link" href="/learn">
                     <SiFuturelearn size="25" className="mx-3" />
-                  </a>
+                  </Link>
                 </li>
 
                 <li className="nav-item me-3 me-lg-1">
