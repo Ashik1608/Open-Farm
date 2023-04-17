@@ -30,7 +30,7 @@ export default function Login() {
       </Head>
       <main>
         <BaseLayout home>
-          <div className="login justify-content-center align-items-center">
+          <div className="dot-pattern login justify-content-center align-items-center">
             <div
               className="bg-secondary rounded-5 p-3"
               style={{ width: "20rem" }}
@@ -43,13 +43,13 @@ export default function Login() {
               />
             </div>
 
-            <div className="w-50 ms-5">
+            <div className="w-60 ms-5">
               <h1>
-                {`"`}Farming is a <span className="text-primary">unique</span>{" "}
-                combination of nature, economics, and culture.{`"`}
+                {`"`}Success is not what you <span className="text-primary"> have</span>{" "}
+                , but who you are.{`"`}
               </h1>
               <h1 className="text-primary d-flex justify-content-end align-items-center w-100">
-                - Wendell Berry
+                - Bo Bennett
               </h1>
             </div>
           </div>

@@ -122,7 +122,7 @@ export default function Feed({ feed, profile }) {
       </Head>
       <main>
         <BaseLayout>
-          <div div className="row">
+          <div div className="column">
             {feed.map((item, i) => {
               console.log(item.imageSrc);
               return (

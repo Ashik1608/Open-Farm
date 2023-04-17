@@ -37,7 +37,7 @@ const Header = ({ isHome }) => {
         <div className="container-fluid justify-content-between">
           {isHome ? (
             <div className="d-flex justify-content-center align-items-center">
-              <a
+              {/* <a
                 className="navbar-brand me-3 mb-1 d-flex justify-content-start align-items-center border border-2 border-dark rounded-pill p-1"
                 href="#"
               >
@@ -49,14 +49,14 @@ const Header = ({ isHome }) => {
                   priority
                   className="m-0"
                 />
-              </a>
+              </a> */}
 
               <h4 className={`${ls_bold.className} mb-0`}>BrainWave.</h4>
             </div>
           ) : (
             <>
               <div className="d-flex">
-                <a
+                {/* <a
                   className="navbar-brand me-3 mb-1 d-flex align-items-center border border-2 border-dark rounded-pill p-1"
                   href="#"
                 >
@@ -68,7 +68,7 @@ const Header = ({ isHome }) => {
                     priority
                     className="m-0"
                   />
-                </a>
+                </a> */}
 
                 <h1 className="input-group w-auto my-auto d-none d-sm-flex">
                   Welcome!!
