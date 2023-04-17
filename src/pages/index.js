@@ -16,11 +16,13 @@ export default function Home() {
         <BaseLayout home>
           <section className="dot-pattern mt-n4 mb-n5">
             <div className="container vh-75 d-flex flex-column justify-content-center align-items-center">
-              <h1 className="display-1 bold text-center text-primary">
-                Connect, Collaborate and Invest.
+              <h1 className="display-1 bold text-center">
+                the perfect way to open source ideas!
               </h1>
-              <h4 className="mt-3 mb-4">
-                Unlock the potential of unused Ideas with our open contribution.
+              <h4 className="mt-3 mb-4 text-center">
+                In short, BrainWave is an online networking platform for sharing
+                and dealing with innovations and concepts created by developers
+                around the world
               </h4>
               <div>
                 <MDBBtn
