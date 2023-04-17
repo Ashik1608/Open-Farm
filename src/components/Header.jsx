@@ -49,7 +49,7 @@ const Header = ({ isHome }) => {
                   className="m-0"
                 />
               </a>
-              <h4 className={`${ls_bold.className} mb-0`}>Open Farm Inc.</h4>
+              <h4 className={`${ls_bold.className} mb-0`}>BrainWave.</h4>
             </div>
           ) : (
             <>
@@ -75,7 +75,7 @@ const Header = ({ isHome }) => {
 
               <ul className="navbar-nav flex-row d-none d-md-flex">
                 <li className="nav-item me-3 me-lg-1 active">
-                  <a className="nav-link" href="#">
+                  <a className="nav-link" href="/">
                     <FiHome size="25" className="text-primary mx-3" />
                   </a>
                 </li>
@@ -93,7 +93,7 @@ const Header = ({ isHome }) => {
                 </li>
 
                 <li className="nav-item me-3 me-lg-1">
-                  <a className="nav-link" href="#">
+                  <a className="nav-link" href="/keep">
                     <AiOutlineHeart size="25" className="mx-3" />
                   </a>
                 </li>
@@ -117,10 +117,6 @@ const Header = ({ isHome }) => {
                       alt="Profile Picture"
                       priority
                     />
-                    <span className="d-none d-sm-block ms-1 text-custom">
-                      Jane Doe{" "}
-                      <BsCaretDownFill className="ms-2 me-1" size="12" />
-                    </span>
                   </a>
                 </li>
               </ul>
