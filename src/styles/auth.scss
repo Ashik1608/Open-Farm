@@ -5,7 +5,6 @@
     left: 0px;
     width: calc(100vw - 200px);
     height: calc(100vh - 200px);
-    background:  #ffffff10;
   }
   
   .auth-container {
@@ -55,11 +54,12 @@
     border-width: 0px;
     cursor: pointer;
     background-color:  #ffffff10;
-    color: white;
+    color: black;
     outline: none;
+    background-color: hsla(0, 0%, 100%, 0.568)
   }
   
   .submit-button::hover {
-    background-color: rgba(10, 241, 182, 1);
+    background-color: hsla(0, 0%, 100%, 0.568);
   }
   

@@ -62,20 +62,15 @@ const Header = ({ isHome }) => {
                     src="https://spline.design/_next/static/chunks/images/spline_logo-c068feca0f6ae756affe68498147df78.png"
                     width="30"
                     height="30"
-                    alt="Open Farm Logo"
+                    alt="brainwave Logo"
                     priority
                     className="m-0"
                   />
                 </a>
 
-                <form className="input-group w-auto my-auto d-none d-sm-flex">
-                  <input
-                    autoComplete="off"
-                    type="search"
-                    className="form-control rounded-pill border-0 bg-secondary text-white"
-                    placeholder={`🔍 Search`}
-                  />
-                </form>
+                <h1 className="input-group w-auto my-auto d-none d-sm-flex">
+                  Welcome!!
+                </h1>
               </div>
 
               <ul className="navbar-nav flex-row d-none d-md-flex">

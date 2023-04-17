@@ -17,11 +17,10 @@ export default function Home() {
           <section className="dot-pattern mt-n4 mb-n5">
             <div className="container vh-75 d-flex flex-column justify-content-center align-items-center">
               <h1 className="display-1 bold text-center text-primary">
-                Connect, Collaborate and Cultivate.
+                Connect, Collaborate and Invest.
               </h1>
               <h4 className="mt-3 mb-4">
-                Unlock the potential of unused lands with our open contribution
-                crop farming platform.
+                Unlock the potential of unused Ideas with our open contribution.
               </h4>
               <div>
                 <MDBBtn
