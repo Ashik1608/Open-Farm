@@ -171,7 +171,6 @@ export default function Feed({ feed, profile }) {
                       alt="Profile Picture"
                     />
                     <div className="mt-2">
-
                       <button
                         onClick={() => {
                           setIsOpen(true);
@@ -188,14 +187,8 @@ export default function Feed({ feed, profile }) {
                         <h1>
                           <MDBCardText>{modalDescription}</MDBCardText>
                         </h1>
-                        <button
-                          onClick={displayRazorpay}
-                        >
-                          Invest
-                        </button>
-                        <button onClick={() => setIsOpen(false)}>
-                          Close
-                        </button>
+                        <button onClick={displayRazorpay}>Invest</button>
+                        <button onClick={() => setIsOpen(false)}>Close</button>
                       </Modal>
                     </div>
                   </MDBCardBody>
