@@ -48,7 +48,7 @@ export default function Auth() {
                 />
               </div>
               <button type="submit" className="submit-button">
-                Login/Signup
+               Chat
               </button>
             </form>
           </div>

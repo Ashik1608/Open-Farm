@@ -93,12 +93,6 @@ const Header = ({ isHome }) => {
                     <SiFuturelearn size="25" className="mx-3" />
                   </Link>
                 </li>
-
-                <li className="nav-item me-3 me-lg-1">
-                  <a className="nav-link" href="/keep">
-                    <AiOutlineHeart size="25" className="mx-3" />
-                  </a>
-                </li>
               </ul>
 
               <MDBBtn className="d-none d-md-block" onClick={handleLogout}>
