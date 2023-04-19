@@ -3,6 +3,7 @@ import emailjs from "@emailjs/browser";
 import BaseLayout from "@/components/BaseLayout";
 import { League_Spartan } from "next/font/google";
 import Modal from "react-modal";
+import React, { useRef } from "react";
 import {
   MDBCard,
   MDBCardBody,
@@ -54,22 +55,6 @@ const displayRazorpay = async (amount) => {
     handler: function (response) {
       alert(`Transaction ID: ${response.razorpay_payment_id}`);
       alert("Payment Successful");
-
-      emailjs
-        .sendForm(
-          "service_k5e5p5p",
-          "template_qjnvs3f",
-          form.current,
-          "LO8MmCq56MvQqYXDK"
-        )
-        .then(
-          (result) => {
-            console.log(result.text);
-          },
-          (error) => {
-            console.log(error.text);
-          }
-        );
     },
   };
 
@@ -111,6 +96,27 @@ export default function Feed({ feed, profile }) {
   const toggleShow = () => setBasicModal(!basicModal);
   const [isOpen, setIsOpen] = useState(false);
   const [modalDescription, setModalDescription] = useState("");
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_k5e5p5p",
+        "Ytemplate_qjnvs3f",
+        form.current,
+        "YLO8MmCq56MvQqYXDK"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
 
   return (
     <>
@@ -122,7 +128,7 @@ export default function Feed({ feed, profile }) {
       </Head>
       <main>
         <BaseLayout>
-          <div div className="row">
+          <div div className="column">
             {feed.map((item, i) => {
               console.log(item.imageSrc);
               return (
@@ -184,9 +190,22 @@ export default function Feed({ feed, profile }) {
                         onRequestClose={() => setIsOpen(false)}
                         className="bg-secondary p-5"
                       >
-                        <h1>
-                          <MDBCardText>{modalDescription}</MDBCardText>
-                        </h1>
+                        <h3>
+                          <MDBCardText>
+                            {modalDescription} <br />
+                            <form className="mail" ref={form}>
+                              <label>Name</label>
+                              <input type="text" name="user_name" /> <br />{" "}
+                              <br />
+                              <label>Email</label>
+                              <input
+                                type="email"
+                                name="user_email"
+                              /> <br /> <br />
+                              <button onClick={sendEmail}> Submit </button>
+                            </form>
+                          </MDBCardText>
+                        </h3>
                         <button onClick={displayRazorpay}>Invest</button>
                         <button onClick={() => setIsOpen(false)}>Close</button>
                       </Modal>

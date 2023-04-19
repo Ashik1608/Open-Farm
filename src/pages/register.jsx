@@ -6,11 +6,7 @@ import { useState } from "react";
 
 export default function Register() {
   const [user, setUser] = useState({ name: "" });
-  const [phone,setPhone] = useState({phoneno:""});
-  const [email,setEmail] = useState({emailid:""});
-  const [pass,setPass] = useState({passwrd:""});
-  const [confirm,setConfirm] = useState({confirmation:""});
-  
+
   return (
     <>
       <Head>
@@ -21,95 +17,49 @@ export default function Register() {
       </Head>
       <main>
         <BaseLayout>
-        <div className="login">     
-          <div className="card  register" >
-            <div className="card-body new">
-              <h3 className="card-title">REGISTERS</h3>
-              <div className="card-text-center">
-                <form>
-                  <p className="card-text">
-                    USERNAME <br />
-                    <input
-                      type="text"
-                      className="input_field"
-                      onChange={(event) => {
-                        setUser({ ...user, name: event.target.value });
-                      }}
-                      value={user.name}
-                    />
-                    <br />
-                    <br />
-                  </p>
-                  <p className="card-text">
-                    PHONE NUMBER <br />
-                    <input
-                      className="input_field"
-                      type="text"
-                      name="pass"
-                      onChange={(event) => {
-                        setPhone({ ...phone, phone: event.target.value });
-                      }}
-                      value={user.name}
-                    />{" "}
+          <div className="login">
+            <div className="card  register">
+              <div className="card-body new">
+                <h3 className="card-title">LOGIN</h3>
+                <div className="card-text-center">
+                  <form>
+                    <p className="card-text">
+                      USERNAME <br />
+                      <input
+                        type="text"
+                        className="input_field"
+                        onChange={(event) => {
+                          setUser({ ...user, name: event.target.value });
+                        }}
+                        value={user.name}
+                      />
+                      <br />
+                      <br />
+                    </p>
+                    <p className="card-text">
+                      CONFIRM PASSWORD <br />
+                      <input type="passwords" className="input_field" />
+                      <br />
+                      <br />
+                    </p>
+                    <button type="button" className="btn btn-primary_login">
+                      <Link className="nav-link" href="/">
+                        Login
+                      </Link>
+                    </button>
                     <br /> <br />
-                  </p>
-                  <p className="card-text">
-                    EMAIL <br />
-                    <input
-                      type="email"
-                      className="input_field"
-                      onChange={(event) => {
-                        setEmail({ ...email, emailid: event.target.value });
-                      }}
-                      value={email.emailid}
-                    />
-                    <br />
-                    <br />
-                  </p>
-                  <p className="card-text">
-                    CREATE PASSWORD <br />
-                    <input
-                      type="password"
-                      className="input_field"
-                      onChange={(event) => {
-                        setPass({ ...pass, passwrd: event.target.value });
-                      }}
-                      value={pass.passwrd}
-                    />
-                    <br />
-                    <br />
-                  </p>
-                  <p className="card-text">
-                    CONFIRM PASSWORD <br />
-                    <input
-                      type="passwords"
-                      className="input_field"
-                      onChange={(event) => {
-                        setConfirmation({ ...confirm, confirmation: event.target.value });
-                      }}
-                      value={confirm.confirmation}
-                    />
-                    <br />
-                    <br />
-                  </p>
-                  <button type="button" className="btn btn-primary_login">
-                    Register
-                  </button>
-                  <br /> <br />
-                </form>
+                  </form>
+                </div>
               </div>
             </div>
+            <div className="right_content">
+              <h1>
+                {`"`}A <span> quote </span> that fits{`"`}
+              </h1>
+            </div>
           </div>
-          < div className="right_content">     
-          <h1>
-              {`"`}A <span> quote </span> that fits{`"`}
-            </h1>
-          </div>
-          </div>
-       
         </BaseLayout>
       </main>
     </>
   );
 }
-     
