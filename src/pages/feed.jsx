@@ -4,6 +4,7 @@ import BaseLayout from "@/components/BaseLayout";
 import { League_Spartan } from "next/font/google";
 import Modal from "react-modal";
 import React, { useRef } from "react";
+import { format } from 'date-fns';
 import {
   MDBCard,
   MDBCardBody,
@@ -158,7 +159,7 @@ export default function Feed({ feed, profile }) {
                             {item.profiles.full_name}
                             <span className="text-muted text-capitalize">
                               {" "}
-                              • {new Date(item.updated_at).toLocaleTimeString()}
+                              {format(new Date(item.updated_at), 'h:mm:ss a')}
                             </span>
                           </p>
                         </span>
