@@ -47,7 +47,7 @@ const displayRazorpay = async (amount) => {
   const options = {
     key: "rzp_test_aLDxDSv5W707v9",
     currency: "INR",
-    amount: 100000,
+    amount: 5000000,
     name: "LUXON",
     description:
       "Transporting service required to move harvested rice grains from Avadi to Central Market",

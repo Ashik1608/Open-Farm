@@ -16,7 +16,7 @@ export default function Auth() {
       .put(
         "https://api.chatengine.io/users/",
         { username, secret },
-        { headers: { "Private-key": "86326f80-d461-444e-ba05-fcaf27254f46" } }
+        { headers: { "Private-key": "0b54d30b-0358-4eed-99f8-6450fc39458a" } }
       )
       .then((r) =>
         Router.push({ pathname: "/chats", query: { username, secret } })
@@ -48,7 +48,7 @@ export default function Auth() {
                 />
               </div>
               <button type="submit" className="submit-button">
-               Chat
+                Chat
               </button>
             </form>
           </div>

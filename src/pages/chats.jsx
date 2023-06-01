@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, } from "react";
 
 import { Context } from "../context";
 
@@ -29,7 +29,7 @@ export default function chats() {
       <div className="shadow">
         <ChatEngine
           height="calc(100ch - 200px)"
-          projectID="2a7d21cb-66e0-4817-adfe-f7e492d4de66"
+          projectID="5f9168d1-f23a-415d-baf8-e892a07736ba"
           userName={router.query.username}
           userSecret={router.query.secret}
           renderNewMessageForm={() => <MessageFormSocial />}
