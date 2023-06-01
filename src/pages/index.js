@@ -29,13 +29,6 @@ export default function Home() {
                 >
                   Get Started!
                 </MDBBtn>
-                <MDBBtn
-                  className="bg-secondary custom-shadow rounded-pill text-capitalize bg-btn ms-3"
-                  href="/home"
-                >
-                  <BsGithub className="mb-1 me-2" />
-                  Github
-                </MDBBtn>
               </div>
             </div>
           </section>
